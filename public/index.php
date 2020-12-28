@@ -17,4 +17,4 @@ $router->add('/', 'App\HomeController:index')
     ->add('user/', 'App\UserController:index')
     ->add('user/{id}', 'App\UserController:show');
 
-$router->run($url);
+$router->run();

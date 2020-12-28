@@ -21,9 +21,11 @@ $url = $_GET['url'] ?? '';
 
 $router = new App\Router($url);
 
-$router->add('/', 'App\HomeController:index');
-$router->add('post/{slug}, 'App\PostController:show');
-$router->add('user/{id}, 'App\UserController:show');
+$router->add('/', 'App\HomeController:index')
+    ->add('post/', 'App\PostController:index')
+    ->add('post/{slug}', 'App\PostController:show')
+    ->add('user/', 'App\UserController:index')
+    ->add('user/{id}', 'App\UserController:show');
 
 $router->run();
 ```
