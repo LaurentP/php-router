@@ -7,16 +7,16 @@ Des fichiers supplémentaires sont fournis afin de l'essayer et de mieux compren
 
 ### Dans votre fichier .htaccess
 
-`
+```
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
-`
+```
 
 ### Dans votre fichier index.php
 
-`
+```php
 $url = $_GET['url'] ?? '';
 
 $router = new App\Router($url);
@@ -26,7 +26,7 @@ $router->add('post/{slug}, App\PostController:show);
 $router->add('user/{id}, App\UserController:show);
 
 $router->run();
-`
+```
 
 ## Important
 
