@@ -21,9 +21,9 @@ $url = $_GET['url'] ?? '';
 
 $router = new App\Router($url);
 
-$router->add('/', App\HomeController:index);
-$router->add('post/{slug}, App\PostController:show);
-$router->add('user/{id}, App\UserController:show);
+$router->add('/', 'App\HomeController:index');
+$router->add('post/{slug}, 'App\PostController:show');
+$router->add('user/{id}, 'App\UserController:show');
 
 $router->run();
 ```
