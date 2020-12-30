@@ -15,12 +15,12 @@ class Router
     /**
      * @var array
      */
-    private $routes;
+    private $routes = [];
 
     /**
      * @var array
      */
-    private $params;
+    private $params = [];
 
     /**
      * @param string $url Contient la portion d'url entrée par le navigateur qui suit l'adresse du site
@@ -72,7 +72,7 @@ class Router
         if (!preg_match("#^$pattern$#", $url, $matches)) {
             return false;
         }
-        $this->params = $matches;
+        $this->params[] = $matches;
         return true;
     }
 
@@ -87,6 +87,6 @@ class Router
         $action     = explode(':', $action);
         $controller = new $action[0]();
         $method     = $action[1];
-        call_user_func_array([$controller, $method], [$this->params]);
+        call_user_func_array([$controller, $method], $this->params);
     }
 }
