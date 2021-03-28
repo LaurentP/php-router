@@ -15,6 +15,10 @@
 
     if (isset($slug)) {
         echo 'Slug : ' . $slug;
+        $baseURL = '/' . dirname(trim($_SERVER['REQUEST_URI'], '/'), 2);
+    }
+    else {
+        $baseURL = '/' . dirname(trim($_SERVER['REQUEST_URI'], '/'));
     }
 
     require_once 'example-menu.php';

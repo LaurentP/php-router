@@ -11,7 +11,13 @@
 
     <h1>Home</h1>
 
-    <?php require_once 'example-menu.php'; ?>
+    <?php
+    
+    $baseURL = '/' . trim($_SERVER['REQUEST_URI'], '/');
+
+    require_once 'example-menu.php';
+    
+    ?>
 
 </body>
 

@@ -1,9 +1,8 @@
 <?php
 
-require_once dirname(__DIR__) . '/php/controller/Router.php';
-require_once dirname(__DIR__) . '/php/controller/HomeController.php';
-require_once dirname(__DIR__) . '/php/controller/PostController.php';
-require_once dirname(__DIR__) . '/php/controller/UserController.php';
+spl_autoload_register(function ($className) {
+    require_once dirname(__DIR__) . '/app/controller/' . explode('\\', $className)[1] . '.php';
+});
 
 use App\Router;
 
@@ -15,6 +14,7 @@ $router->add('/', 'App\HomeController:index')
     ->add('post/', 'App\PostController:index')
     ->add('post/{slug}', 'App\PostController:show')
     ->add('user/', 'App\UserController:index')
-    ->add('user/{id}', 'App\UserController:show');
+    ->add('user/{id}', 'App\UserController:show')
+    ->onError('App\ErrorController:index');
 
 $router->run();
