@@ -71,10 +71,10 @@ class Router
                 return $this->execute($action);
             }
         }
+        header('HTTP/1.0 404 Not Found');
         if (!empty($this->errorAction)) {
             return $this->execute($this->errorAction);
         }
-        header('HTTP/1.0 404 Not Found');
     }
 
     /**

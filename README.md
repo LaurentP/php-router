@@ -36,7 +36,7 @@ $router->run();
 * Le namespace doit être spécifié pour chaque classe.
 * Les noms de la classe et de la méthode doivent être séparés par deux points.
 * Les accolades indiquent les emplacements des paramètres à transmettre à la méthode souhaitée.
-* Pour passer des variables GET, il est obligatoire d'échapper les signes "?" et "=" par un antislash "\" dans l'url.
+* Pour passer des variables GET, il est obligatoire d'échapper les signes "?" et "=" par un antislash "\\" dans l'url.
 
 ## À savoir
 
